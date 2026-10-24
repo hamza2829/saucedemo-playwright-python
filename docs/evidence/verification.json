@@ -29,6 +29,18 @@
         "trace.zip": "2d6fd076531db8d3878976d61f6cc7766206c4bc88ddeec4cb48512fb4cb5b0b",
         "regression.log": "a76547fbceb0c188ee0c1950cd1c05ad271cd2d2411ef06a966b32bff5aacf24",
         "regression.xml": "96146891c375959f59d9f5f36a1110701fac534adb819297f5fe224aa1bd95bc"
+      },
+      "fixed_smoke": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "fixed_regression": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
       }
     },
     "firefox": {
@@ -57,7 +69,21 @@
         "trace.zip": "cffeb9dcedef5fc19cddfd3a98aa413f922f386e0cdde9b768615eef5edf41a8",
         "regression.log": "405221020c435084dba2a3aae41fd41164d1b6e2a84015e9208e87999d000832",
         "regression.xml": "c961c304f3719b2f6faf1d7b287cd7f56902de865b640c3c0134768a7d0d9399"
+      },
+      "fixed_smoke": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "fixed_regression": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
       }
     }
-  }
+  },
+  "fixed_run": "https://github.com/hamza2829/saucedemo-playwright-python/actions/runs/40141919504",
+  "fixed_commit": "79a49566f6f0fb67e530f5aabe5f7442160c3da7"
 }

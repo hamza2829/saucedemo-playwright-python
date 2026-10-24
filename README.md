@@ -1,5 +1,7 @@
 # SauceDemo Playwright tests
 
+[![UI tests](https://github.com/hamza2829/saucedemo-playwright-python/actions/workflows/ui-tests.yml/badge.svg?branch=main)](https://github.com/hamza2829/saucedemo-playwright-python/actions/workflows/ui-tests.yml)
+
 Python UI tests for the [public SauceDemo shop](https://www.saucedemo.com/). This repository tests login, product sorting, cart changes and checkout. It uses page objects, pytest fixtures, parametrization and Playwright assertions.
 
 ## Local setup on Windows
@@ -69,6 +71,7 @@ The failure drill is real and retained in Git history:
 1. Commit [`fe9416a`](https://github.com/hamza2829/saucedemo-playwright-python/commit/fe9416a8e1cd3a4bc4ce75b53a7049dfe2f20052) changed only the expected checkout total from `$43.18` to `$44.18`.
 2. [Failed CI run 40141740908](https://github.com/hamza2829/saucedemo-playwright-python/actions/runs/40141740908) passed all 3 smoke cases on each browser. Each regression job reported 1 failure and 16 passes. The failing case was `test_order_total` on both browsers.
 3. Commit `9ec38e0` restored `$43.18`. The subtotal is `$39.98`, tax is `$3.20`, and the displayed total is `$43.18`. No assertion was removed or weakened.
+4. [Green run after the fix, 40141919504](https://github.com/hamza2829/saucedemo-playwright-python/actions/runs/40141919504), passed 3 smoke and 17 regression cases on each browser, plus the 3 offline helper checks in each job. [Saved JUnit results](docs/evidence/fixed-run) confirm 40 UI passes across the two browsers with no skips, failures or errors. The drill and fix commits remain in history.
 
 Exact excerpt from the saved Chromium CI log:
 
