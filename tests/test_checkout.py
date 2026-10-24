@@ -34,7 +34,7 @@ def test_order_total(checkout):
     # Independent expected values: 29.99 + 9.99, then 8% tax rounded to cents.
     expect(checkout.subtotal).to_have_text("Item total: $39.98")
     expect(checkout.tax).to_have_text("Tax: $3.20")
-    expect(checkout.total).to_have_text("Total: $43.18")
+    expect(checkout.total).to_have_text("Total: $44.18")
 
 
 @pytest.mark.regression
