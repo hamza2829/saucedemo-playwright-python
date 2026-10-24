@@ -1,0 +1,52 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.15, pytest-8.4.2, pluggy-1.7.0
+rootdir: /home/runner/work/saucedemo-playwright-python/saucedemo-playwright-python
+configfile: pytest.ini
+testpaths: tests
+plugins: metadata-3.1.1, playwright-0.7.1, html-4.1.1, base-url-2.1.0
+collected 20 items / 3 deselected / 17 selected
+
+tests/test_checkout.py .F.                                               [ 17%]
+tests/test_inventory.py ...                                              [ 35%]
+tests/test_login.py ...                                                  [ 52%]
+tests/test_checkout.py .                                                 [ 58%]
+tests/test_inventory.py ..                                               [ 70%]
+tests/test_login.py .                                                    [ 76%]
+tests/test_checkout.py .                                                 [ 82%]
+tests/test_inventory.py .                                                [ 88%]
+tests/test_login.py .                                                    [ 94%]
+tests/test_inventory.py .                                                [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_order_total[firefox] ___________________________
+
+checkout = <pages.checkout.CheckoutPage object at 0x7fc0c2d47680>
+
+    @pytest.mark.regression
+    def test_order_total(checkout):
+        checkout.begin()
+        checkout.submit_details()
+        # Independent expected values: 29.99 + 9.99, then 8% tax rounded to cents.
+        expect(checkout.subtotal).to_have_text("Item total: $39.98")
+        expect(checkout.tax).to_have_text("Tax: $3.20")
+>       expect(checkout.total).to_have_text("Total: $44.18")
+E       AssertionError: Locator expected to have text 'Total: $44.18'
+E       Actual value: Total: $43.18 
+E       Call log:
+E         - Expect "to_have_text" with timeout 10000ms
+E         - waiting for locator("[data-test=\"total-label\"]")
+E           14 × locator resolved to <div data-test="total-label" class="summary_total_label">Total: $43.18</div>
+E              - unexpected value "Total: $43.18"
+
+tests/test_checkout.py:37: AssertionError
+- generated xml file: /home/runner/work/saucedemo-playwright-python/saucedemo-playwright-python/reports/regression.xml -
+- Generated html report: file:///home/runner/work/saucedemo-playwright-python/saucedemo-playwright-python/reports/regression.html -
+=========================== short test summary info ============================
+FAILED tests/test_checkout.py::test_order_total[firefox] - AssertionError: Locator expected to have text 'Total: $44.18'
+Actual value: Total: $43.18 
+Call log:
+  - Expect "to_have_text" with timeout 10000ms
+  - waiting for locator("[data-test=\"total-label\"]")
+    14 × locator resolved to <div data-test="total-label" class="summary_total_label">Total: $43.18</div>
+       - unexpected value "Total: $43.18"
+================= 1 failed, 16 passed, 3 deselected in 28.12s ==================

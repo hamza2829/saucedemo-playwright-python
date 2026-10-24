@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.zip binary
+# Preserve downloaded evidence byte for byte, including the recorded hashes.
+docs/evidence/** -text
