@@ -1,0 +1,48 @@
+name: UI tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ui:
+    name: UI / ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and browser
+        run: |
+          python -m pip install -r requirements.txt
+          python -m playwright install --with-deps ${{ matrix.browser }}
+      - name: Smoke tests
+        run: |
+          mkdir -p reports
+          set -o pipefail
+          python -m pytest -m smoke --browser ${{ matrix.browser }} --artifact-dir test-results/smoke --html=reports/smoke.html --self-contained-html --junitxml=reports/smoke.xml 2>&1 | tee reports/smoke.log
+      - name: Regression tests
+        run: |
+          set -o pipefail
+          python -m pytest -m regression --browser ${{ matrix.browser }} --artifact-dir test-results/regression --html=reports/regression.html --self-contained-html --junitxml=reports/regression.xml 2>&1 | tee reports/regression.log
+      - name: Upload reports and failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-results-${{ matrix.browser }}-${{ github.run_id }}
+          path: |
+            reports/
+            test-results/
+          retention-days: 30
+          if-no-files-found: warn
