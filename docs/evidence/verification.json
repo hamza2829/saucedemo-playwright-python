@@ -1,0 +1,63 @@
+{
+  "baseline_run": "https://github.com/hamza2829/saucedemo-playwright-python/actions/runs/40141704524",
+  "failure_run": "https://github.com/hamza2829/saucedemo-playwright-python/actions/runs/40141740908",
+  "failure_commit": "fe9416a8e1cd3a4bc4ce75b53a7049dfe2f20052",
+  "browsers": {
+    "chromium": {
+      "baseline_smoke": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "baseline_regression": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "drill_regression": {
+        "tests": 17,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      },
+      "trace_zip_integrity": "passed",
+      "trace_entries": 48,
+      "sha256": {
+        "failure.png": "1ca89a3e7ac7f64e2a43038a3ac8159eb5164a3629491a7ae7abe4dd190c26c8",
+        "trace.zip": "2d6fd076531db8d3878976d61f6cc7766206c4bc88ddeec4cb48512fb4cb5b0b",
+        "regression.log": "a76547fbceb0c188ee0c1950cd1c05ad271cd2d2411ef06a966b32bff5aacf24",
+        "regression.xml": "96146891c375959f59d9f5f36a1110701fac534adb819297f5fe224aa1bd95bc"
+      }
+    },
+    "firefox": {
+      "baseline_smoke": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "baseline_regression": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "drill_regression": {
+        "tests": 17,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      },
+      "trace_zip_integrity": "passed",
+      "trace_entries": 112,
+      "sha256": {
+        "failure.png": "621ddfea2a862a1716e6ce010418cced56ca87695fdc9f924069c1540ef03f6e",
+        "trace.zip": "cffeb9dcedef5fc19cddfd3a98aa413f922f386e0cdde9b768615eef5edf41a8",
+        "regression.log": "405221020c435084dba2a3aae41fd41164d1b6e2a84015e9208e87999d000832",
+        "regression.xml": "c961c304f3719b2f6faf1d7b287cd7f56902de865b640c3c0134768a7d0d9399"
+      }
+    }
+  }
+}

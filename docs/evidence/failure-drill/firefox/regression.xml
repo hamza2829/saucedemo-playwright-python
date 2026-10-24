@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="17" time="28.125" timestamp="2026-10-24T23:12:38.531094+00:00" hostname="runnervmtai0g"><testcase classname="tests.test_checkout" name="test_missing_checkout_fields[firefox-first-name-empty]" time="2.948" /><testcase classname="tests.test_checkout" name="test_order_total[firefox]" time="11.387"><failure message="AssertionError: Locator expected to have text 'Total: $44.18'&#10;Actual value: Total: $43.18 &#10;Call log:&#10;  - Expect &quot;to_have_text&quot; with timeout 10000ms&#10;  - waiting for locator(&quot;[data-test=\&quot;total-label\&quot;]&quot;)&#10;    14 × locator resolved to &lt;div data-test=&quot;total-label&quot; class=&quot;summary_total_label&quot;&gt;Total: $43.18&lt;/div&gt;&#10;       - unexpected value &quot;Total: $43.18&quot;">checkout = &lt;pages.checkout.CheckoutPage object at 0x7fc0c2d47680&gt;
+
+    @pytest.mark.regression
+    def test_order_total(checkout):
+        checkout.begin()
+        checkout.submit_details()
+        # Independent expected values: 29.99 + 9.99, then 8% tax rounded to cents.
+        expect(checkout.subtotal).to_have_text("Item total: $39.98")
+        expect(checkout.tax).to_have_text("Tax: $3.20")
+&gt;       expect(checkout.total).to_have_text("Total: $44.18")
+E       AssertionError: Locator expected to have text 'Total: $44.18'
+E       Actual value: Total: $43.18 
+E       Call log:
+E         - Expect "to_have_text" with timeout 10000ms
+E         - waiting for locator("[data-test=\"total-label\"]")
+E           14 × locator resolved to &lt;div data-test="total-label" class="summary_total_label"&gt;Total: $43.18&lt;/div&gt;
+E              - unexpected value "Total: $43.18"
+
+tests/test_checkout.py:37: AssertionError</failure></testcase><testcase classname="tests.test_checkout" name="test_cancel_checkout[firefox]" time="1.193" /><testcase classname="tests.test_inventory" name="test_sorting[firefox-name-ascending]" time="0.802" /><testcase classname="tests.test_inventory" name="test_remove_from_cart[firefox]" time="0.943" /><testcase classname="tests.test_inventory" name="test_cart_badge_count[firefox-1]" time="0.796" /><testcase classname="tests.test_login" name="test_invalid_password[firefox]" time="0.687" /><testcase classname="tests.test_login" name="test_locked_out_user[firefox]" time="0.665" /><testcase classname="tests.test_login" name="test_empty_login_fields[firefox-both-empty]" time="0.684" /><testcase classname="tests.test_checkout" name="test_missing_checkout_fields[firefox-last-name-empty]" time="1.255" /><testcase classname="tests.test_inventory" name="test_sorting[firefox-name-descending]" time="0.742" /><testcase classname="tests.test_inventory" name="test_cart_badge_count[firefox-3]" time="1.026" /><testcase classname="tests.test_login" name="test_empty_login_fields[firefox-username-empty]" time="0.754" /><testcase classname="tests.test_checkout" name="test_missing_checkout_fields[firefox-postal-code-empty]" time="1.250" /><testcase classname="tests.test_inventory" name="test_sorting[firefox-price-ascending]" time="0.782" /><testcase classname="tests.test_login" name="test_empty_login_fields[firefox-password-empty]" time="0.708" /><testcase classname="tests.test_inventory" name="test_sorting[firefox-price-descending]" time="1.373" /></testsuite></testsuites>
