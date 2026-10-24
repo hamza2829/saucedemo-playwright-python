@@ -2,4 +2,5 @@
 *.png binary
 *.zip binary
 # Preserve downloaded evidence byte for byte, including the recorded hashes.
-docs/evidence/** -text
+docs/evidence/failure-drill/** -text
+docs/evidence/fixed-run/** -text
